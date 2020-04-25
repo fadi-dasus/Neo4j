@@ -82,6 +82,7 @@ RETURN b.ISBN, sum(p.qty) as quantity
 
 
 //10.Best-selling books: The top 10 selling books ordered in descending order by number of sales.
+//NEED WORK 
 match (customer:Customer)-[p:PURCHASED]->(o:Order)
 match (o)-[c:CONTAINED]->(b:Book)
 WITH sum(p.qty) as quantity, p, o, b
