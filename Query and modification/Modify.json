@@ -1,112 +1,85 @@
 
 //1.Sell a book to a customer
-//what is known here is only the customer's name
-match(c:Customer)
-where c.name="Clause"
-match(b:Book)
-where b.ISBN="a1"
-create (o:Order{date:"2020-04-25", orderNo: apoc.create.uuid()})
-create (c)-[pu:PURCHASED{price:100, qty:29, ISBN: "a1"}]->(o)
-create (o)-[co:CONTAINED]->(b)
-return c
 
-
-
+// need work
+match(b:Book{ISBN:'a20'})
+CREATE (o:Order{date:date(), orderNo: apoc.create.uuid()})
+CREATE (c)-[pu:PURCHASED{price:b.price, qty:20, ISBN: b.ISBN}]->(o)
+FOREACH (x in CASE WHEN b.copies > pu.qty THEN [1] ELSE [] END | 
+SET b.copies = b.copies - pu.qty
+CREATE (o)-[co:CONTAINED]->(b) )
 
 
 //2.Change the address of a customer
-//2.1
-match (c:Customer{name:"Peter"})-[l:Lives_In]->(a:Address)
-set a.town= 'Århus'
-set a.zip= 8000
-set a.street= 'newStreetname'
-return c
 
-
-//2.2
-match (c:Customer{name:"Peter"})-[l:Lives_In]->(a:Address)
-set a= { town: 'Århus',zip: 8000, street: 'newStreetname'}
-return c
+MERGE (newAddress:Address{town:'new town',zip:8000,street:'new street'})
+WITH newAddress
+MATCH (c:Customer{name:"Peter"})-[l:Lives_In]->(oldAddress:Address)
+CREATE (c)-[:Lives_In]->(newAddress)
+DELETE l
 
 
 
 
 //3.Add an existing author to a book
-//here better to changes name of authors to different names and different emails
-//since it is difficult to know or copy the uuid
-MATCH (b:Book),(a:Author)
-WHERE a.name="Poul" AND b.ISBN = "a1"
-create (a)-[w:WORTE]->(b)
-RETURN b
 
-
+MATCH (b:Book{ISBN:'a1'}),(a:Author{name:'Poul'})
+CREATE (a)-[w:WORTE]->(b)
+RETURN *
 
 
 
 //4.Retire the "Space Opera" category and assign all books from that category to the parent category.
 //Don't assume you know the id of the parent category
-match (b:Book)-[i:IS_a]-> (c:Category)
-where c.name ="Space Opera"
-match (c:Category)-[p:PARENT]->(parent:Category)
-set c.name = parent.name
-return b
 
-
+MATCH  (b:Book)-[i:IS_a]->(c:Category{name:'Space Opera'})
+MATCH(c)-[p:PARENT]->(parent:Category)
+WITH COLLECT(b.ISBN) AS nodesList, c,i, parent,b,p
+FOREACH (n in nodesList | 
+CREATE (b)-[:IS_a]->(parent)
+DELETE i,p,c
+)
 
 //5.Change a book from Non-fiction to fiction, or vice versa
 //Fiction to Non-Fiction
-//nothing has been changed
-match (b:Book)-[i:IS_a]-> (c:Category)
-where c.name ="Fiction"
-set c.name = "Non-Fiction"
-return b
 
+MATCH  (b:Book{ISBN:'a2'})-[i:IS_a]->(c:Category{name:'Dystopian'})
+MATCH (target:Category{name:'Non-Fiction'})
+CREATE (b)-[:IS_a]->(target)
+DELETE i
+RETURN b
 
 
 //6.Retire the "Fantasy and Science Fiction" category and just use either "Fantasy" or "Science Fiction"
-//only change the parent?
-//or both name and parent?
-//we only have fantasy and science fiction as parent in our data
-match (c:Category)-[p:PARENT]->(parent:Category)
-where  parent.name="Fantasy and Science Fiction"
-set parent.name="Science Fiction"
-return c
 
+MATCH (sf:Category{name:'Fantasy and Science Fiction' })-[parent1:PARENT]->(sfp:Category)
+MATCH (sifi:Category{name:'Science Fiction'})
+MATCH (fa:Category{name:'Fantasy'})
+WITH sf,sfp,sifi,fa
+CREATE (sifi)-[parent2:PARENT]->(sfp)
+CREATE (fa)-[parent3:PARENT]->(sifi)
+WITH sf
+MATCH (sf) DETACH DELETE sf
 
 
 //7.Sell 3 copies of one book and 2 of another in a single order
-//7.1 in two steps
-match(c:Customer)
-where c.name="Clause"
-match(b:Book)
-where b.ISBN="a1"
-create (o:Order{date:"2020-04-25", orderNo: apoc.create.uuid()})
-create (c)-[pu:PURCHASED{price:100, qty:3, ISBN: "a1"}]->(o)
-create (o)-[co:CONTAINED]->(b)
+
+MATCH(b1:Book{ISBN:'a1'})
+MATCH(b2:Book{ISBN:'a2'})
+MATCH (c:Customer{name:'Fadi'})
+CREATE (o:Order{date:date(), orderNo: apoc.create.uuid()})
+CREATE (c)-[pu1:PURCHASED{price:b1.price, qty:3, ISBN: b1.ISBN}]->(o)
+CREATE (c)-[pu2:PURCHASED{price:b2.price, qty:2, ISBN: b2.ISBN}]->(o)
+FOREACH (x in CASE WHEN b1.copies > pu1.qty THEN [1] ELSE [] END | 
+SET b1.copies = b1.copies - pu1.qty
+CREATE (o)-[:CONTAINED]->(b1) )
+FOREACH (x in CASE WHEN b2.copies > pu2.qty THEN [1] ELSE [] END | 
+SET b2.copies = b2.copies - pu2.qty
+CREATE (o)-[:CONTAINED]->(b2) )
+RETURN o
 
 
 
-
-match(c:Customer), (o:Order)
-where c.name="Clause" and o.date="2020-04-25"
-match(b:Book)
-where b.ISBN="a2"
-create (c)-[pu:PURCHASED{price:100, qty:2, ISBN: "a2"}]->(o)
-create (o)-[co:CONTAINED]->(b)
-return c
+____________________
 
 
-//7.2 in one single step :)
-match(c:Customer)
-where c.name="Fadi"
-match(b1:Book)
-where b1.ISBN="a1"
-match(b2:Book)
-where b2.ISBN="a2"
-create (o:Order{date:"2020-04-25", orderNo: apoc.create.uuid()})
-create (c)-[pu:PURCHASED{price:100, qty:3, ISBN: "a1"}]->(o)
-create (o)-[co:CONTAINED]->(b1)
-
-create (c)-[:PURCHASED{price:100, qty:2, ISBN: "a2"}]->(o)
-create (o)-[:CONTAINED]->(b2)
-return c
