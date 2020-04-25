@@ -1,0 +1,90 @@
+﻿node {
+  diameter: 50px;
+  color: #569480;
+  border-color: #447666;
+  border-width: 2px;
+  text-color-internal: #FFFFFF;
+  font-size: 10px;
+}
+relationship {
+  color: #DA7194;
+  shaft-width: 3px;
+  font-size: 8px;
+  padding: 3px;
+  text-color-external: #000000;
+  text-color-internal: #FFFFFF;
+  caption: "<type>";
+  border-color: #cc3c6c;
+}
+node.* {
+  color: #C990C0;
+  border-color: #b261a5;
+  text-color-internal: #FFFFFF;
+  defaultCaption: "<id>";
+}
+node.Character {
+  color: #F79767;
+  border-color: #555211;
+  text-color-internal: #FFFFFF;
+  defaultCaption: "<id>";
+  caption: "{type}";
+  diameter: 50px;
+}
+relationship.WROTE {
+  color: #569480;
+  border-color: #447666;
+  text-color-internal: #FFFFFF;
+  shaft-width: 3px;
+}
+node.Customer {
+  caption: "{name}";
+  color: #DC143C;
+  border-color: #447666;
+  text-color-internal: #FFFFFF;
+  diameter: 50px;
+}
+node.Address {
+  caption: "{town}";
+  color: #F3DE8E;
+  border-color: #2870c2;
+  text-color-internal: #FFFFFF;
+  diameter: 50px;
+}
+node.Author {
+  caption: "{name}";
+  color: #C397DA;
+  border-color: #9AA1AC;
+  text-color-internal: #FFFFFF;
+  diameter: 50px;
+}
+node.Category {
+  caption: "{name}";
+  diameter: 50px;
+  color: #AEAEAE;
+  border-color: #cc3c6c;
+  text-color-internal: #FFFFFF;
+}
+node.Book {
+  caption: "{title}";
+  color: #000000;
+  border-color: #eb2728;
+  text-color-internal: #FFFFFF;
+  diameter: 50px;
+}
+
+node.Order {
+  caption: "{id}";
+  color: #E8F15A;
+  border-color: #c0a378;
+  text-color-internal: #604A0E;
+  diameter: 50px;
+}
+relationship.PARENT {
+  shaft-width: 5px;
+}
+node.Database {
+  caption: "{name}";
+}
+node.Message {
+  caption: "{name}";
+}
