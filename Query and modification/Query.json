@@ -1,36 +1,28 @@
 
-//// create some books whith no charcters and not in any order
-
-
 //1. All books by an author
-
-//1.1 when finding all books by a spesific author
 match(a:Author {name: "Robert hug"})-[:WORTE]-> (b:Book)
 return b
 
 
-//1.2 finding all book by each author
-match(a:Author)-[:WORTE]-> (b:Book)
-return a,b
-
 
 //2. Total price of an order
-
 match (c:Customer) -[p:PURCHASED]-> (o:Order{orderNo:"c20bae5f-065d-489f-9f6e-77965e2b6c08"})
 return  sum (p.price* p.qty) as totalAmount
 
 
 
 //3.Total sales to a customer
-
 match (c:Customer{name: 'Clause'}) -[p:PURCHASED]-> (o:Order)
 return  sum (p.price* p.qty) as totalAmount
 
 
+
 //4.Books that are categorized as neither fiction nor non-fiction
+//we need to ask ole, if we need their parent should be neither Fiction or non-Fiction
 match (b:Book)-[:IS_a]-> (c:Category)
 where not c.name in ["Fiction", "Non-Fiction"]
 return b,c
+
 
 
 //5.Average page count by genre
@@ -39,11 +31,12 @@ match(b:Book)-[:IS_a]-> (c:Category)
 return c.name, avg(b.pages)
 
 
-//6.Categories that have no sub-categories 
 
+//6.Categories that have no sub-categories 
 match (c:Category)-[p:PARENT]->(parent:Category)
 where not exists ((c)<-[:PARENT]-())
 return  c
+
 
 
 //7.ISBN numbers of books with more than one author
@@ -51,49 +44,43 @@ match (a:Author)-[*2]->(b:Book)
 RETURN b.ISBN
 
 
+//or
+match (b:Book)
+match ()-[w:WROTE]->(b)
+WITH count(w) as Authors, b
+WHERE Authors >1
+RETURN b.ISBN
+
+
+
 //8.ISBN numbers of books that sold at least X copies (you decide the value for X)
-// needs some work in the second part
 match (o:Order)
 match ()-[p:PURCHASED]->(o)
 WITH sum(p.qty) as quantity, p, o
-WHERE quantity > 5
-RETURN p.ISBN, o, quantity
+WHERE quantity > 1
+RETURN p.ISBN, quantity
 
 
-// or
-match (c:Customer)-[*5]->(o:Order)
-RETURN o
 
 
 //9.Number of copies of each book sold – unsold books should show as 0 sold copies.
-// NEED SOME WORK
-match (o:Order)
-match ()-[p:PURCHASED]->(o)
-match (o)-[c:CONTAINED]->(b:Book)
-WITH sum(p.qty) as quantity, p, o, b
-RETURN b.ISBN, o, quantity
-
-
-// needs work
 match (c:Customer)-[p:PURCHASED]->(o:Order)
-optional match (o)-[co:CONTAINED]->(b:Book)
-WITH p , o , b 
+match (o)-[co:CONTAINED]->(b:Book)
+where not b.ISBN= p.ISBN
 RETURN b.ISBN, sum(p.qty) as quantity
 
 
-//10.Best-selling books: The top 10 selling books ordered in descending order by number of sales.
-//NEED WORK 
+//10.Best-selling books: The top 10 selling books ordered in descending order by number of sales. 
 match (customer:Customer)-[p:PURCHASED]->(o:Order)
 match (o)-[c:CONTAINED]->(b:Book)
-WITH sum(p.qty) as quantity, p, o, b
-RETURN b.ISBN,  quantity
+RETURN p.ISBN, sum(p.qty) as quantity
 order by quantity desc
 limit 10
 
 
+
+
 //11.Best-selling genres: The top 3 selling genres ordered in descending order by number of sales.
-
-
 MATCH (c:Category)<-[i:IS_a]-(b:Book)<-[co:CONTAINED]-(o:Order)<-[p:PURCHASED]-()
 WHERE p.ISBN = b.ISBN
 RETURN c.name, sum(p.qty) as quantity
@@ -104,36 +91,27 @@ limit 3
 
 
 //12.All science fiction books. Cyberpunk and other sub-categories of science fiction also counts as science fiction.
-
-
 MATCH (b:Book)-[i:IS_a]->(c:Category)-[*]->(p2:Category{name:'Science Fiction'})
 RETURN b
 
+
+
 //13.Characters used in science fiction books
-
-
 MATCH (ch:Character)-[:PRESENTED_IN]->(b:Book)-[i:IS_a]->(c:Category)-[*]->(p2:Category{name:'Science Fiction'})
 RETURN ch
 
 
 
 //14.Number of books in each category including books in their sub-categories.
-
 MATCH (b:Book)-[*]->(c:Category)
 RETURN c.name , sum(b.copies)
 
 
 
 //15.Suggestions for other books that the customer might like to buy (This is deliberately open. Find your own criteria.)
-
 MATCH (cu:Customer{name: "Fadi"})-[pu:PURCHASED]->(o:Order)-[*]->(cat:Category)<-[:IS_a]-(b:Book)
 WITH COLLECT(DISTINCT pu.ISBN) AS purchasedbooks, COLLECT(DISTINCT b.ISBN) AS booksFromTheSameCategory
 RETURN [n IN booksFromTheSameCategory WHERE NOT n IN purchasedbooks] as listC
-
-
-
-
-
 
 
 
