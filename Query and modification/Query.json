@@ -54,12 +54,11 @@ RETURN b.ISBN
 
 
 //8.ISBN numbers of books that sold at least X copies (you decide the value for X)
-match (o:Order)
-match ()-[p:PURCHASED]->(o)
+match ()-[p:PURCHASED]->(o:Order)
 WITH sum(p.qty) as quantity, p, o
-WHERE quantity > 1
+WHERE quantity > 20
 RETURN p.ISBN, quantity
-
+ORDER BY quantity DESC
 
 
 
@@ -71,13 +70,11 @@ RETURN b.ISBN, sum(p.qty) as quantity
 
 
 //10.Best-selling books: The top 10 selling books ordered in descending order by number of sales. 
+
 match (customer:Customer)-[p:PURCHASED]->(o:Order)
-match (o)-[c:CONTAINED]->(b:Book)
 RETURN p.ISBN, sum(p.qty) as quantity
 order by quantity desc
-limit 10
-
-
+LIMIT 10
 
 
 //11.Best-selling genres: The top 3 selling genres ordered in descending order by number of sales.
