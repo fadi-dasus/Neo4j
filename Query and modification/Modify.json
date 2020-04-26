@@ -2,10 +2,12 @@
 //1.Sell a book to a customer
 
 // need work
-match(b:Book{ISBN:'a20'})
-CREATE (o:Order{date:date(), orderNo: apoc.create.uuid()})
-CREATE (c)-[pu:PURCHASED{price:b.price, qty:20, ISBN: b.ISBN}]->(o)
-FOREACH (x in CASE WHEN b.copies > pu.qty THEN [1] ELSE [] END | 
+MATCH(b:Book{ISBN:'a20'})
+MATCH(c:Customer{name:'Fadi'})
+WITH b,c, apoc.create.uuid() AS uuid, date() AS date, 10 as quantity
+FOREACH (x in CASE WHEN b.copies > quantity THEN [1] ELSE [] END | 
+CREATE (o:Order{date:date, orderNo: uuid})
+CREATE (c)-[pu:PURCHASED{price:b.price, qty:quantity, ISBN: b.ISBN}]->(o)
 SET b.copies = b.copies - pu.qty
 CREATE (o)-[co:CONTAINED]->(b) )
 
@@ -64,20 +66,21 @@ MATCH (sf) DETACH DELETE sf
 
 //7.Sell 3 copies of one book and 2 of another in a single order
 
-MATCH(b1:Book{ISBN:'a1'})
-MATCH(b2:Book{ISBN:'a2'})
-MATCH (c:Customer{name:'Fadi'})
-CREATE (o:Order{date:date(), orderNo: apoc.create.uuid()})
-CREATE (c)-[pu1:PURCHASED{price:b1.price, qty:3, ISBN: b1.ISBN}]->(o)
-CREATE (c)-[pu2:PURCHASED{price:b2.price, qty:2, ISBN: b2.ISBN}]->(o)
-FOREACH (x in CASE WHEN b1.copies > pu1.qty THEN [1] ELSE [] END | 
+MATCH(b1:Book{ISBN:'a20'})
+MATCH(c:Customer{name:'Fadi'})
+WITH 2  as qty1,b1,c,  apoc.create.uuid() AS uuid, date() AS date
+WHERE qty1 < b1.copies
+MERGE (o:Order{date:date,orderNo:uuid})
+MERGE (c)-[pu1:PURCHASED{price:b1.price, qty:qty1, ISBN: b1.ISBN}]->(o)
 SET b1.copies = b1.copies - pu1.qty
-CREATE (o)-[:CONTAINED]->(b1) )
-FOREACH (x in CASE WHEN b2.copies > pu2.qty THEN [1] ELSE [] END | 
+CREATE (o)-[co:CONTAINED]->(b1) 
+WITH 3  as qty2,c, uuid ,date
+MATCH(b2:Book{ISBN:'a1'})
+WHERE qty2 < b2.copies
+MERGE (o:Order{date:date,orderNo:uuid})
+MERGE (c)-[pu2:PURCHASED{price:b2.price, qty:qty2, ISBN: b2.ISBN}]->(o)
 SET b2.copies = b2.copies - pu2.qty
-CREATE (o)-[:CONTAINED]->(b2) )
-RETURN o
-
+CREATE (o)-[co:CONTAINED]->(b2)
 
 
 ____________________
