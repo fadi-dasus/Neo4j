@@ -47,7 +47,7 @@ return  c
 
 
 //7.ISBN numbers of books with more than one author
-match (a:Author)-[*1]->(b:Book)
+match (a:Author)-[*2]->(b:Book)
 RETURN b.ISBN
 
 
@@ -125,11 +125,10 @@ RETURN c.name , sum(b.copies)
 
 
 //15.Suggestions for other books that the customer might like to buy (This is deliberately open. Find your own criteria.)
-NEED  WORK 
-MATCH (cu:Customer{name: "Peter"})-[pu:PURCHASED]->(o:Order)-[]->(:Book)-[]->(cat:Category)
-MATCH (b:Book)-[:IS_a]->(cat)
-WHERE NOT b.ISBN = pu.ISBN 
-RETURN "Book you might like to buy also",  b.ISBN, b.title
+
+MATCH (cu:Customer{name: "Fadi"})-[pu:PURCHASED]->(o:Order)-[*]->(cat:Category)<-[:IS_a]-(b:Book)
+WITH COLLECT(DISTINCT pu.ISBN) AS purchasedbooks, COLLECT(DISTINCT b.ISBN) AS booksFromTheSameCategory
+RETURN [n IN booksFromTheSameCategory WHERE NOT n IN purchasedbooks] as listC
 
 
 
