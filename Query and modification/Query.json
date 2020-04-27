@@ -85,13 +85,13 @@ LIMIT 3
 
 
 //12.All science fiction books. Cyberpunk and other sub-categories of science fiction also counts as science fiction.
-MATCH (b:Book)-[*]->(:Category{name:'Science Fiction'})-[*1]->(:Category)
+MATCH (b:Book)-[*]->(:Category{name:'Science Fiction'})-[*..1]->(:Category)
 RETURN b
 
 
 
 //13.Characters used in science fiction books
-MATCH (ch:Character)-[*]->(:Category{name:'Science Fiction'})-[*1]->(:Category)
+MATCH (ch:Character)-[*]->(:Category{name:'Science Fiction'})-[*..1]->(:Category)
 RETURN ch
 
 
