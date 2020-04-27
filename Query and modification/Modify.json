@@ -13,13 +13,14 @@ CREATE (o)-[co:CONTAINED]->(b) )
 
 //2.Change the address of a customer
 
-MERGE (newAddress:Address{town:'new town',zip:8000,street:'new street'})
+MERGE (newAddress:Address{town:'new city',zip:8000,street:'new street'})
 WITH newAddress
 MATCH (c:Customer{name:"Peter"})-[l:Lives_In]->(oldAddress:Address)
 CREATE (c)-[:Lives_In]->(newAddress)
 DELETE l
-
-
+with oldAddress
+where not exists (()-[:Lives_In]->(oldAddress) ) 
+delete oldAddress
 
 
 //3.Add an existing author to a book
@@ -48,7 +49,7 @@ MATCH  (b:Book{ISBN:'a2'})-[i:IS_a]->(c:Category{name:'Dystopian'})
 MATCH (target:Category{name:'Non-Fiction'})
 CREATE (b)-[:IS_a]->(target)
 DELETE i
-RETURN b
+
 
 
 //6.Retire the "Fantasy and Science Fiction" category and just use either "Fantasy" or "Science Fiction"
