@@ -25,10 +25,12 @@ CALL apoc.load.json("file:///bookStore.json")
 	MERGE ((category:Category{name:value.book.category}))
 	MERGE((order)-[:CONTAINED]->(book))
 	MERGE((customer)-[:PURCHASED{price:value.order.book.price,qty:value.order.book.qty,ISBN:value.order.book.ISBN}]->(order))
-	MERGE((author)-[:WORTE]->(book))
+	MERGE((author)-[:WROTE]->(book))
 	MERGE ((character)-[:PRESENTED_IN]->(book))
 	MERGE ((book)-[:IS_a]->(category))
 
+CREATE CONSTRAINT ON (order:Order)
+ASSERT order.uuid IS UNIQUE
 
 	
 MATCH (n) DETACH DELETE n
