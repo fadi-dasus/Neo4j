@@ -1,7 +1,6 @@
 
 //1.Sell a book to a customer
 
-// need work
 MATCH(b:Book{ISBN:'a20'})
 MATCH(c:Customer{name:'Fadi'})
 WITH b,c, apoc.create.uuid() AS uuid, date() AS date, 10 as quantity
