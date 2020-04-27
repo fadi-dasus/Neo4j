@@ -65,9 +65,9 @@ ORDER BY quantity DESC
 //9.Number of copies of each book sold – unsold books should show as 0 sold copies.
 MATCH (cu:Customer)-[pu:PURCHASED]->(:Order)
 match(b:Book)
-WITH COLLECT(DISTINCT pu.ISBN) AS purchasedbooks, COLLECT(DISTINCT b.ISBN) AS books, b, pu
-with sum(pu.qty) as test,b, pu
-RETURN b.ISBN,sum(CASE WHEN b.ISBN =pu.ISBN THEN test ELSE 0 END ) as quantity
+WITH  b, pu
+with sum(pu.qty) as  calculate,b, pu
+RETURN b.ISBN,sum(CASE WHEN b.ISBN =pu.ISBN THEN calculate ELSE 0 END ) as quantity
 order by quantity desc
 
 
