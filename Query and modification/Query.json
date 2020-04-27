@@ -1,111 +1,109 @@
 
 //1. All books by an author
-match(a:Author {name: "Robert hug"})-[:WORTE]-> (b:Book)
-return b
+MATCH(a:Author {name: "Robert hug"})-[:WORTE]-> (b:Book)
+RETURN b
 
 
 
 //2. Total price of an order
-match (c:Customer) -[p:PURCHASED]-> (o:Order{orderNo:"c20bae5f-065d-489f-9f6e-77965e2b6c08"})
-return  sum (p.price* p.qty) as totalAmount
+MATCH (c:Customer) -[p:PURCHASED]-> (o:Order{orderNo:"c20bae5f-065d-489f-9f6e-77965e2b6c08"})
+RETURN  SUM(p.price* p.qty) AS totalAmount
 
 
 
 //3.Total sales to a customer
-match (c:Customer{name: 'Clause'}) -[p:PURCHASED]-> (o:Order)
-return  sum (p.price* p.qty) as totalAmount
+MATCH (c:Customer{name: 'Clause'}) -[p:PURCHASED]-> (o:Order)
+RETURN  SUM(p.price* p.qty) AS totalAmount
 
 
 
 //4.Books that are categorized as neither fiction nor non-fiction
-//we need to ask ole, if we need their parent should be neither Fiction or non-Fiction
-match (b:Book)-[:IS_a]-> (c:Category)
-where not c.name in ["Fiction", "Non-Fiction"]
-return b,c
+
+MATCH(b:Book)-[:IS_a]-> (c:Category)
+WHERE NOT c.name IN ["Fiction", "Non-Fiction"]
+RETURN b
 
 
 
 //5.Average page count by genre
-// we need to ask Ole about, whether we need to find average pages for the parent as well
-match(b:Book)-[:IS_a]-> (c:Category)
-return c.name, avg(b.pages)
+
+MATCH(b:Book)-[:IS_a]-> (c:Category)
+RETURN c.name, AVG(b.pages)
 
 
 
 //6.Categories that have no sub-categories 
-match (c:Category)-[p:PARENT]->(parent:Category)
-where not exists ((c)<-[:PARENT]-())
-return  c
+MATCH(c:Category)-[p:PARENT]->(parent:Category)
+WHERE NOT EXISTS ((c)<-[:PARENT]-())
+RETURN c
 
 
 
 //7.ISBN numbers of books with more than one author
-match (a:Author)-[*2]->(b:Book)
-RETURN b.ISBN
 
-
-//or
-match (b:Book)
-match ()-[w:WROTE]->(b)
-WITH count(w) as Authors, b
-WHERE Authors >1
-RETURN b.ISBN
+MATCH(a:Author)-[w:WROTE]->(b:Book)
+WITH count(w) AS Authors, b
+WHERE Authors > 1
+RETURN  b.ISBN
 
 
 
 //8.ISBN numbers of books that sold at least X copies (you decide the value for X)
-match ()-[p:PURCHASED]->(o:Order)
-WITH sum(p.qty) as quantity, p, o
+MATCH()-[p:PURCHASED]->(o:Order)
+WITH p.ISBN AS book, SUM(p.qty) AS quantity 
 WHERE quantity > 20
-RETURN p.ISBN, quantity
-ORDER BY quantity DESC
+RETURN *
 
 
 
 //9.Number of copies of each book sold – unsold books should show as 0 sold copies.
 MATCH (cu:Customer)-[pu:PURCHASED]->(:Order)
-match(b:Book)
+MATCH(b:Book)
 WITH  b, pu
-with sum(pu.qty) as  calculate,b, pu
-RETURN b.ISBN,sum(CASE WHEN b.ISBN =pu.ISBN THEN calculate ELSE 0 END ) as quantity
-order by quantity desc
+WITH SUM(pu.qty) AS calculate,b, pu
+RETURN b.ISBN,SUM(CASE WHEN b.ISBN =pu.ISBN THEN calculate ELSE 0 END ) AS quantity
+ORDER BY quantity DESC
 
 
 
 //10.Best-selling books: The top 10 selling books ordered in descending order by number of sales. 
 
-match (customer:Customer)-[p:PURCHASED]->(o:Order)
-RETURN p.ISBN, sum(p.qty) as quantity
-order by quantity desc
+MATCH (customer:Customer)-[p:PURCHASED]->(o:Order)
+RETURN p.ISBN, sum(p.qty) AS quantity
+ORDER BY quantity DESC
 LIMIT 10
 
 
 //11.Best-selling genres: The top 3 selling genres ordered in descending order by number of sales.
 MATCH (c:Category)<-[i:IS_a]-(b:Book)<-[co:CONTAINED]-(o:Order)<-[p:PURCHASED]-()
 WHERE p.ISBN = b.ISBN
-RETURN c.name, sum(p.qty) as quantity
-order by quantity desc
-limit 3
+RETURN c.name, SUM(p.qty) AS quantity
+ORDER BY quantity DESC
+LIMIT 3
 
 
 
 
 //12.All science fiction books. Cyberpunk and other sub-categories of science fiction also counts as science fiction.
-MATCH (b:Book)-[i:IS_a]->(c:Category)-[*]->(p2:Category{name:'Science Fiction'})
+MATCH (b:Book)-[*]->(:Category{name:'Science Fiction'})-[*1]->(:Category)
 RETURN b
 
 
 
 //13.Characters used in science fiction books
-MATCH (ch:Character)-[:PRESENTED_IN]->(b:Book)-[i:IS_a]->(c:Category)-[*]->(p2:Category{name:'Science Fiction'})
+MATCH (ch:Character)-[*]->(:Category{name:'Science Fiction'})-[*1]->(:Category)
 RETURN ch
 
 
-
 //14.Number of books in each category including books in their sub-categories.
+//number of copies
 MATCH (b:Book)-[*]->(c:Category)
-RETURN c.name , sum(b.copies)
+RETURN c.name , SUM(b.copies)
 
+
+//number of books
+MATCH (b:Book)-[*]->(c:Category)
+RETURN c.name , COUNT(b)
 
 
 //15.Suggestions for other books that the customer might like to buy (This is deliberately open. Find your own criteria.)

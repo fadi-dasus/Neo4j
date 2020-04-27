@@ -4,7 +4,7 @@
 MATCH(b:Book{ISBN:'a20'})
 MATCH(c:Customer{name:'Fadi'})
 WITH b,c, apoc.create.uuid() AS uuid, date() AS date, 10 as quantity
-FOREACH (x in CASE WHEN b.copies > quantity THEN [1] ELSE [] END | 
+FOREACH (x IN CASE WHEN b.copies > quantity THEN [1] ELSE [] END | 
 CREATE (o:Order{date:date, orderNo: uuid})
 CREATE (c)-[pu:PURCHASED{price:b.price, qty:quantity, ISBN: b.ISBN}]->(o)
 SET b.copies = b.copies - pu.qty
@@ -18,9 +18,9 @@ WITH newAddress
 MATCH (c:Customer{name:"Peter"})-[l:Lives_In]->(oldAddress:Address)
 CREATE (c)-[:Lives_In]->(newAddress)
 DELETE l
-with oldAddress
-where not exists (()-[:Lives_In]->(oldAddress) ) 
-delete oldAddress
+WITH oldAddress
+WHERE NOT EXISTS (()-[:Lives_In]->(oldAddress) ) 
+DELETE oldAddress
 
 
 //3.Add an existing author to a book
@@ -37,7 +37,7 @@ RETURN *
 MATCH  (b:Book)-[i:IS_a]->(c:Category{name:'Space Opera'})
 MATCH(c)-[p:PARENT]->(parent:Category)
 WITH COLLECT(b.ISBN) AS nodesList, c,i, parent,b,p
-FOREACH (n in nodesList | 
+FOREACH (n IN nodesList | 
 CREATE (b)-[:IS_a]->(parent)
 DELETE i,p,c
 )
@@ -68,13 +68,13 @@ MATCH (sf) DETACH DELETE sf
 
 MATCH(b1:Book{ISBN:'a20'})
 MATCH(c:Customer{name:'Fadi'})
-WITH 2  as qty1,b1,c,  apoc.create.uuid() AS uuid, date() AS date
+WITH 2  AS qty1,b1,c,  apoc.create.uuid() AS uuid, date() AS date
 WHERE qty1 < b1.copies
 MERGE (o:Order{date:date,orderNo:uuid})
 MERGE (c)-[pu1:PURCHASED{price:b1.price, qty:qty1, ISBN: b1.ISBN}]->(o)
 SET b1.copies = b1.copies - pu1.qty
 CREATE (o)-[co:CONTAINED]->(b1) 
-WITH 3  as qty2,c, uuid ,date
+WITH 3  AS qty2,c, uuid ,date
 MATCH(b2:Book{ISBN:'a1'})
 WHERE qty2 < b2.copies
 MERGE (o:Order{date:date,orderNo:uuid})
