@@ -1,0 +1,73 @@
+1. Sell a book to a customer.
+create (n:order{date : '28/04/2020',orderNo : '12'}) match (c:Customer), (o:order) where c.name = 'sami' AND o.id= '12' create (c)-[r:orders]->(o) return (r)
+match (o:order),(b:Book) where o.orderNo='6' AND b.title='You before me' create (o)-[r:contains]->(b) return type(r)
+
+
+
+2. Change the address of a customer.
+MATCH (n { name: 'sami' })-[r:lives]->()
+DELETE r
+MATCH (a:Customer),(b:address)
+WHERE a.name = 'sami' AND b.address = 'second address'
+CREATE (a)-[r:lives]->(b)
+RETURN type(r)
+
+
+3. Add an existing author to a book.
+MATCH (a:Author),(b:Book)
+WHERE a.name = 'Gaseo' AND b.title = 'You before me'
+CREATE (a)-[r:wrties]->(b)
+RETURN type(r)
+
+
+
+4. Retire the "Space Opera" category and assign all books from that category to the parent category.
+Don't assume you know the id of the parent category.
+MATCH (b:Book)-[i:partOf]->(c:Category{name:'Fiction'})
+MATCH(c)-[p:parent]->(f:Category)
+WITH COLLECT(b.ISBN) AS l, c,i, f,b,p
+FOREACH (n IN l| 
+CREATE (b)-[:partOf]->(f)
+DELETE i,p,c
+)
+
+
+
+5. Change a book from Non-fiction to fiction, or vice versa.
+match (n:Book{title:'my fiction action'})-[r:partOf]->() delete r
+MATCH (a:Book),(b:Category)
+WHERE a.title = 'my fiction action' AND b.category = 'Fiction'
+CREATE (a)-[r:partOf]->(b)
+RETURN type(r)
+
+
+6. Retire the "Fantasy and Science Fiction" category and just use either "Fantasy" or "Science Fiction"
+MATCH (a:Category{name:'Adult' })-[p:parent]->(a2:Category)
+MATCH (a3:Category{name:'Sc_Fi'})
+MATCH (a4:Category{name:'Non_Fiction'})
+WITH a,a2,a3,a4
+CREATE (a3)-[p1:parent]->(a2)
+CREATE (fa)-[p2:parent]->(a3)
+WITH a
+MATCH (a) DETACH DELETE a
+
+
+7. Sell 3 copies of one book and 2 of another in a single order
+create (n:Order{orderNo:'15', date:'2020-4-24'}) 
+MATCH (a:order),(b:Book)
+WHERE a.orderNO = '15' AND b.title = 'You before me'
+CREATE (a)-[r:Contains{amount:'3'}]->(b)
+RETURN type(r)
+MATCH (a:order),(b:Book)
+WHERE a.orderNO = '15' AND b.title = 'Moon'
+CREATE (a)-[r:Contains{amount:'2'}]->(b)
+RETURN type(r)
+
+
+
+
+
+
+
+
+

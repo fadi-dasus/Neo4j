@@ -1,0 +1,6 @@
+CustomerNo,name,email,password,address_Line
+1,sami,firstUser@mail.com,firstPass,first address
+2,james,seocndUser@mail.com,seocndtPass,seocnd address
+3,Ramzi,thirdUser@mail.com,thirdPass,third address
+4,Joe,fourthUser@mail.com,fourthPass,fourth address
+5,Roy,fifthUser@mail.com,fifthtPass,fifth address

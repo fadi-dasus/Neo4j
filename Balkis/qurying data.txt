@@ -1,0 +1,69 @@
+1. All books by an author
+MATCH p=()-[r:wrties]->() RETURN p
+
+2. Total price of an order
+match (o:order{orderNo:'3'})-[n:contains]->(b:Book) RETURN sum ( apoc.convert.toFloat(n.price)  *  apoc.convert.toFloat(n.amount))as total
+
+
+
+3. Total sales to a customer
+MATCH (c:Customer{name:'sami'})-[r:orders]->(o:order)-[n:contains]->(b:Book) RETURN sum ( apoc.convert.toFloat(n.price)  *  apoc.convert.toFloat(n.amount))as total
+
+
+4. Books that are categorized as neither fiction nor non-fiction
+MATCH (b:Book)where not (b)-[:partOf]->(:Category{category:'Fiction'}) xor (b)-[:partOf]->(:Category{category:'Non_Fiction'}) RETURN b
+OR
+MATCH (b:Book)-[r:partOf]->(c:Category) where not c.category = 'Fiction'xor c.category ='Non_Fiction' RETURN b
+
+
+
+5. Average page count by genre
+MATCH (b:Book)-[r:partOf]->(c:Category{category: 'Fiction'}) return avg(apoc.convert.toFloat(b.physicalCopies))
+
+
+6. Categories that have no sub-categories
+MATCH (a:Category) WHERE NOT (a)<-[:belongs]-() return a
+
+7. ISBN numbers of books with more than one author
+MATCH (a:Author)-[r:wrties]->(b:Book) with b, count (a) as au where au >1 return b.ISBN
+
+8. ISBN numbers of books that sold at least X copies (you decide the value for X)
+MATCH(o:order)-[c:Contains]->(b:Book)
+WITH b.ISBN AS book, SUM(c.amount) AS amount
+WHERE amount > 15
+RETURN *
+
+9. Number of copies of each book sold – unsold books should show as 0 sold copies.
+MATCH (c:Customer)-[o:orders]->(o1:order)-[co:Contains]->(b:Book)
+WITH  b, o
+WITH SUM(co.amount) AS r,b, o
+RETURN b.ISBN,SUM(CASE WHEN b.ISBN =co.ISBN THEN r ELSE 0 END ) As amount
+ORDER BY amount DESC
+
+10. Best-selling books: The top 10 selling books ordered in descending order by number of sales.
+match (o:order)-[r:contains]->(b:Book)
+return b.title, sum(apoc.convert.toFloat(r.amount)) as totalSellsPerBook
+order by totalSellsPerBook desc limit 10
+
+
+11. Best-selling genres: The top 3 selling genres ordered in descending order by number of sales.
+match (o:order)-[r:contains]->(b:Book)-[p:partOf]->(c:Category)
+return  sum(apoc.convert.toFloat(r.amount)) as totalSellsPerGenre,c.category
+order by totalSellsPerISBN desc limit 3
+12. All science fiction books. Cyberpunk and other sub-categories of science fiction also counts as science fiction.
+MATCH (b:Book)-[*]->(:Category{name:'Sc_Fi'})-[*..1]->(:Category)
+RETURN b
+13. Characters used in science fiction books(it might work)
+match (c:Character)<-[:typeOf]-(b:Book)-[:belongs]->(ca:Category{category:'Sc_Fi'}) return c
+
+
+
+14. Number of books in each category including books in their sub-categories.
+MATCH (b:Book)-[*]->(c:Category)
+RETURN c.category , SUM(apoc.convert.toFloat(b.physicalCopies))
+
+15. Suggestions for other books that the customer might like to buy (This is deliberately open. Find your
+own criteria.)
+MATCH (c:Customer{name: "sami"})-[o:orders]->(o1:order)-[*]->(c:Category)<-[:partOf]-(b:Book)
+WITH COLLECT(DISTINCT o.ISBN) AS orderedBooks, COLLECT(DISTINCT b.ISBN) AS booksFromSameCategory
+RETURN [n IN booksFromSameCategory WHERE NOT n IN orderedBooks] as s

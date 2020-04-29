@@ -1,0 +1,80 @@
+//loading and creating customer 
+load csv with headers from "file:///c:/customer.csv" as row
+merge (customer:Customer {customerNo:row.CustomerNo})on create 
+set customer.name = row.name, customer.email= row.email, 
+customer.password=row.password;
+
+//creating and loading category
+load csv with headers from "file:///c:/category.csv" as row merge (category:Category {category:row.Category_name});
+
+//loading and creating address 
+load csv with headers from "file:///c:/customer.csv" as row merge (address:address {address:row.address_Line});
+
+//loading and creating character
+load csv with headers from "file:///c:/character.csv" as row merge (character:Character {type:row.type});
+
+loading and creting Books
+load csv with headers from "file:///c:/Book.csv" as row merge (Book:Book {ISBN:row.ISBN})on create set Book.title = row.title, Book.page = row.page, Book.price = row.price, Book.physicalCopies= row.physical_copies;
+
+
+loading and creating order
+load csv with headers from "file:///c:/order.csv" as row merge (order:order {orderNo:row.orderNo})on create set order.date = row.date;
+
+
+
+
+
+
+//creating indexes
+
+CREATE INDEX authorId FOR (a:Author) ON (a.author);
+CREATE INDEX customerNo FOR (c:Customer) ON (c.cusomterNo);
+CREATE INDEX orderNo FOR (o:Order) ON (o.orderNo);
+CREATE INDEX BookId FOR (B:Book) ON (B.ISBN);
+CREATE INDEX categoryId FOR (c:Category) ON (c.category_name);
+CREATE INDEX charecterId FOR (ch:Character) ON (ch.type);
+CREATE INDEX addressId FOR (ad:Address) ON (ad.address);
+CREATE CONSTRAINT orderNo ON (o:Order) ASSERT o.orderNo IS UNIQUE;
+schema await;
+
+
+
+
+
+
+
+
+
+//creating realtionship between orders and customers
+load csv with headers from "file:///c:/order.csv" as row  match (o:order{orderNo:row.orderNo}),(c:Customer{customerNo:row.customerNo}) merge (c)-[:orders]->(o)
+
+
+//creating relations between character and book
+load csv with headers from "file:///c:/FictionCharacter.csv" as row  match (b:Book{ISBN:row.ISBN}),(c:Character{type:row.character_type}) merge (b)-[:typeOf]->(c)
+
+
+
+//creating relation between author and book
+load csv with headers from "file:///c:/BookAuthor.csv" as row  match (b:Book{ISBN:row.ISBN}),(a:Author{authorId:row.authorId}) merge (a)-[:wrties]->(b)
+
+
+
+
+//creating relation between category and category
+load csv with headers from "file:///c:/category.csv" as row  match (c1:Category{category:row.Category_name}),(c2:Category{category:row.PARENT}) merge (c1)-[:belongs]->(c2)
+
+
+
+
+//creating relation between order and book
+load csv with headers from "file:///c:/orderLine.csv" as row  match (o:order{orderNo:row.orderNo}),(b:Book{ISBN:row.ISBN}) merge (o)-[op:contains]->(b) on create set op.amount = row.amount, op.price= b.price
+
+
+
+//creating realationship between address and cusomters
+load csv with headers from "file:///c:/customer.csv" as row  match (c:Customer{customerNo:row.CustomerNo}),(a:address{address:row.address_Line}) merge (c)-[:lives]->(a)
+
+
+//creating realationship between book and category
+load csv with headers from "file:///c:/BookCategory.csv" as row  match (c:Category{category:row.name}),(b:Book{ISBN:row.ISBN}) merge (b)-[:partOf]->(c)
+

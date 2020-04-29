@@ -1,0 +1,8 @@
+Category_name,PARENT
+Adult,
+Fiction,Sc_Fi
+Historical_Romance,Romace
+Non_Fiction,Sc_Fi
+Paranormal_Romance,Romace
+Romace,Adult
+Sc_Fi,Adult
