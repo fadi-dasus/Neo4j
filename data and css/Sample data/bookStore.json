@@ -1,0 +1,1722 @@
+{
+	"_id" : 1,
+	"name" : "Peter",
+	"email" : "peter@gmail.com",
+	"password" : "peterpeter",
+	"orderNo" : 1,
+	"address" : {
+		"street" : "newStreetName",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 1,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" : 10.0,
+			"ISBN" : "a1",
+			"qty" : 100
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 1,
+		"ISBN" : "a1",
+		"price" : 10.0,
+		"pages" : 402,
+		"copies" : 40,
+		"language" : "en",
+		"author" : 1,
+		"cahracter" : {
+			"type" : "Count Almaviva"
+		},
+		"title" : "Cat on a Hot Tin Roof",
+		"category" : "Space Opera"
+	},
+	"author" : {
+		"_id" : 1,
+		"name" : "Robert hug",
+		"email" : "hug@gmail.com"
+	}
+}
+{
+	"_id" : 1,
+	"name" : "Peter",
+	"email" : "peter@gmail.com",
+	"password" : "peterpeter",
+	"orderNo" : 1,
+	"address" : {
+		"street" : "newStreetName",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 1,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" :10.0,
+			"ISBN" : "a1",
+			"qty" : 1454
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 1,
+		"ISBN" : "a1",
+		"price" : 10.0,
+		"pages" : 402,
+		"copies" : 40,
+		"language" : "en",
+		"author" : 2,
+		"cahracter" : {
+			"type" : "Count Almaviva"
+		},
+		"title" : "Cat on a Hot Tin Roof",
+		"category" : "Space Opera"
+	},
+	"author" : {
+		"_id" : 2,
+		"name" : "Victor stefan",
+		"email" : "victor@gmail.com"
+	}
+}
+{
+	"_id" : 1,
+	"name" : "Peter",
+	"email" : "peter@gmail.com",
+	"password" : "peterpeter",
+	"orderNo" : 1,
+	"address" : {
+		"street" : "newStreetName",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 1,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" : 100.0,
+			"ISBN" : "a2",
+			"qty" : 104
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 2,
+		"ISBN" : "a2",
+		"price" : 100.0,
+		"pages" : 420,
+		"copies" : 40,
+		"language" : "en",
+		"author" : 1,
+		"cahracter" : {
+			"type" : "The Alvings "
+		},
+		"title" : "Women in Love",
+		"category" : "Dystopian"
+	},
+	"author" : {
+		"_id" : 1,
+		"name" : "Robert hug",
+		"email" : "hug@gmail.com"
+	}
+}
+{
+	"_id" : 1,
+	"name" : "Peter",
+	"email" : "peter@gmail.com",
+	"password" : "peterpeter",
+	"orderNo" : 2,
+	"address" : {
+		"street" : "newStreetName",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 2,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" : 102.0,
+			"ISBN" : "a3",
+			"qty" : 187
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 3,
+		"ISBN" : "a3",
+		"price" : 102.0,
+		"pages" : 4420,
+		"copies" : 40,
+		"language" : "en",
+		"author" : 11,
+		"cahracter" : {
+			"type" : "Alceste"
+		},
+		"title" : "Lord Peter Wimsey series",
+		"category" : "Space Opera"
+	},
+	"author" : {
+		"_id" : 11,
+		"name" : "Kiel strre",
+		"email" : "kiel@gmail.com"
+	}
+}
+{
+	"_id" : 1,
+	"name" : "Peter",
+	"email" : "peter@gmail.com",
+	"password" : "peterpeter",
+	"orderNo" : 2,
+	"address" : {
+		"street" : "newStreetName",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 2,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" : 102.0,
+			"ISBN" : "a4",
+			"qty" : 165
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 4,
+		"ISBN" : "a4",
+		"price" : 102.0,
+		"pages" : 4025,
+		"copies" : 40,
+		"language" : "en",
+		"author" : 12,
+		"cahracter" : {
+			"type" : "Albertine"
+		},
+		"title" : "Ulysses",
+		"category" : "Dystopian"
+	},
+	"author" : {
+		"_id" : 12,
+		"name" : "Bodil toft",
+		"email" : "bodil@gmail.com"
+	}
+}
+{
+	"_id" : 1,
+	"name" : "Peter",
+	"email" : "peter@gmail.com",
+	"password" : "peterpeter",
+	"orderNo" : 3,
+	"address" : {
+		"street" : "newStreetName",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 3,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" : 123.0,
+			"ISBN" : "a6",
+			"qty" : 10
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 6,
+		"ISBN" : "a6",
+		"price" : 123.0,
+		"pages" : 401,
+		"copies" : 40,
+		"language" : "en",
+		"author" : 3,
+		"cahracter" : {
+			"type" : "Bilbo Baggins"
+		},
+		"title" : "Tales of Mother Goose",
+		"category" : "Dystopian"
+	},
+	"author" : {
+		"_id" : 3,
+		"name" : "Stefan",
+		"email" : "stefan@gmail.com"
+	}
+}
+{
+	"_id" : 3,
+	"name" : "Lars",
+	"email" : "lars@gmail.com",
+	"password" : "peter.Lars",
+	"orderNo" : 4,
+	"address" : {
+		"street" : "koldingvej",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 4,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" : 1254.0,
+			"ISBN" : "a7",
+			"qty" : 10
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 7,
+		"ISBN" : "a7",
+		"price" : 1235.0,
+		"pages" : 402,
+		"copies" : 40,
+		"language" : "en",
+		"author" : 2,
+		"cahracter" : {
+			"type" : "Mr. Bumble"
+		},
+		"title" : "Far from the Madding Crowd",
+		"category" : "Space Opera"
+	},
+	"author" : {
+		"_id" : 2,
+		"name" : "Victor stefan",
+		"email" : "victor@gmail.com"
+	}
+}
+{
+	"_id" : 3,
+	"name" : "Lars",
+	"email" : "lars@gmail.com",
+	"password" : "peter.Lars",
+	"orderNo" : 4,
+	"address" : {
+		"street" : "koldingvej",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 4,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" : 123.0,
+			"ISBN" : "a8",
+			"qty" : 10
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 8,
+		"ISBN" : "a8",
+		"price" : 123.0,
+		"pages" : 4025,
+		"copies" : 40,
+		"language" : "en",
+		"author" : 4,
+		"cahracter" : {
+			"type" : "Bluebeard"
+		},
+		"title" : "The Hunting of the Snark",
+		"category" : "Cyberpunk"
+	},
+	"author" : {
+		"_id" : 4,
+		"name" : "Jo",
+		"email" : "jo@gmail.com"
+	}
+}
+{
+	"_id" : 3,
+	"name" : "Lars",
+	"email" : "lars@gmail.com",
+	"password" : "peter.Lars",
+	"orderNo" : 5,
+	"address" : {
+		"street" : "koldingvej",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 5,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" :1235.0,
+			"ISBN" : "a9",
+			"qty" : 10
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 9,
+		"ISBN" : "a9",
+		"price" : 1235.0,
+		"pages" : 40,
+		"copies" : 40,
+		"language" : "en",
+		"author" : 5,
+		"cahracter" : {
+			"type" : "Boojum"
+		},
+		"title" : "lord of shadow",
+		"category" : "Cyberpunk"
+	},
+	"author" : {
+		"_id" : 5,
+		"name" : "Poul",
+		"email" : "Poul@gmail.com"
+	}
+}
+{
+	"_id" : 3,
+	"name" : "Lars",
+	"email" : "lars@gmail.com",
+	"password" : "peter.Lars",
+	"orderNo" : 5,
+	"address" : {
+		"street" : "koldingvej",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 5,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" : 230.0,
+			"ISBN" : "a10",
+			"qty" : 10
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 10,
+		"ISBN" : "a10",
+		"price" : 230.0,
+		"pages" : 430,
+		"copies" : 670,
+		"language" : "en",
+		"author" : 6,
+		"cahracter" : {
+			"type" : "dew"
+		},
+		"title" : "firght night",
+		"category" : "Cyberpunk"
+	},
+	"author" : {
+		"_id" : 6,
+		"name" : "Jan",
+		"email" : "jan@rgmail.com"
+	}
+}
+{
+	"_id" : 5,
+	"name" : "Poul",
+	"email" : "Poul@gmail.com",
+	"password" : "Poul.Poul",
+	"orderNo" : 6,
+	"address" : {
+		"street" : "ejbyvej",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 6,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" : 120.0,
+			"ISBN" : "a11",
+			"qty" : 10
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 11,
+		"ISBN" : "a11",
+		"price" : 120.0,
+		"pages" : 430,
+		"copies" : 30,
+		"language" : "en",
+		"author" : 7,
+		"cahracter" : {
+			"type" : "tom"
+		},
+		"title" : "lucifer",
+		"category" : "Cyberpunk"
+	},
+	"author" : {
+		"_id" : 7,
+		"name" : "Tom",
+		"email" : "tom@gmail.com"
+	}
+}
+{
+	"_id" : 5,
+	"name" : "Poul",
+	"email" : "Poul@gmail.com",
+	"password" : "Poul.Poul",
+	"orderNo" : 6,
+	"address" : {
+		"street" : "ejbyvej",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 6,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" : 210.0,
+			"ISBN" : "a12",
+			"qty" : 10
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 12,
+		"ISBN" : "a12",
+		"price" : 210.0,
+		"pages" : 40,
+		"copies" : 460,
+		"language" : "en",
+		"author" : 8,
+		"cahracter" : {
+			"type" : "jery"
+		},
+		"title" : "arther",
+		"category" : "Cyberpunk"
+	},
+	"author" : {
+		"_id" : 8,
+		"name" : "Tomy",
+		"email" : "tomy@gmail.com"
+	}
+}
+{
+	"_id" : 6,
+	"name" : "Pieer",
+	"email" : "piee@rgmail.com",
+	"password" : "pieer",
+	"orderNo" : 7,
+	"address" : {
+		"street" : "viavej",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 7,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" : 510.0,
+			"ISBN" : "a13",
+			"qty" : 10
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 13,
+		"ISBN" : "a13",
+		"price" : 510.0,
+		"pages" : 450,
+		"copies" : 460,
+		"language" : "en",
+		"author" : 9,
+		"cahracter" : {
+			"type" : "ch bi"
+		},
+		"title" : "king li",
+		"category" : "Dystopian"
+	},
+	"author" : {
+		"_id" : 9,
+		"name" : "Giuth",
+		"email" : "giuth@gmail.com"
+	}
+}
+{
+	"_id" : 6,
+	"name" : "Pieer",
+	"email" : "piee@rgmail.com",
+	"password" : "pieer",
+	"orderNo" : 7,
+	"address" : {
+		"street" : "viavej",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 7,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" : 610.0,
+			"ISBN" : "a14",
+			"qty" : 10
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 14,
+		"ISBN" : "a14",
+		"price" : 610.0,
+		"pages" : 402,
+		"copies" : 460,
+		"language" : "en",
+		"author" : 10,
+		"cahracter" : {
+			"type" : "ffahd"
+		},
+		"title" : "the lion king",
+		"category" : "Dystopian"
+	},
+	"author" : {
+		"_id" : 10,
+		"name" : "Klause",
+		"email" : "klause@gmail.com"
+	}
+}
+{
+	"_id" : 7,
+	"name" : "Tom",
+	"email" : "tom@gmail.com",
+	"password" : "petTomter",
+	"orderNo" : 8,
+	"address" : {
+		"street" : "skolevej",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 8,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" : 231.0,
+			"ISBN" : "a15",
+			"qty" : 10
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 15,
+		"ISBN" : "a15",
+		"price" : 231.0,
+		"pages" : 420,
+		"copies" : 350,
+		"language" : "en",
+		"author" : 11,
+		"cahracter" : {
+			"type" : "shoja"
+		},
+		"title" : "old school",
+		"category" : "Space Opera"
+	},
+	"author" : {
+		"_id" : 11,
+		"name" : "Kiel strre",
+		"email" : "kiel@gmail.com"
+	}
+}
+{
+	"_id" : 7,
+	"name" : "Tom",
+	"email" : "tom@gmail.com",
+	"password" : "petTomter",
+	"orderNo" : 8,
+	"address" : {
+		"street" : "skolevej",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 8,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" : 103.0,
+			"ISBN" : "a16",
+			"qty" : 10
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 16,
+		"ISBN" : "a16",
+		"price" : 103.0,
+		"pages" : 240,
+		"copies" : 350,
+		"language" : "en",
+		"author" : 12,
+		"cahracter" : {
+			"type" : "stev"
+		},
+		"title" : "the tiger",
+		"category" : "Space Opera"
+	},
+	"author" : {
+		"_id" : 12,
+		"name" : "Bodil toft",
+		"email" : "bodil@gmail.com"
+	}
+}
+{
+	"_id" : 8,
+	"name" : "Tomy",
+	"email" : "tomy@gmail.com",
+	"password" : "peTom",
+	"orderNo" : 9,
+	"address" : {
+		"street" : "brovejen",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 9,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" : 160.0,
+			"ISBN" : "a17",
+			"qty" : 10
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 17,
+		"ISBN" : "a17",
+		"price" : 160.0,
+		"pages" : 340,
+		"copies" : 350,
+		"language" : "en",
+		"author" : 10,
+		"cahracter" : {
+			"type" : "robin"
+		},
+		"title" : "ms parker",
+		"category" : "Cyberpunk"
+	},
+	"author" : {
+		"_id" : 10,
+		"name" : "Klause",
+		"email" : "klause@gmail.com"
+	}
+}
+{
+	"_id" : 8,
+	"name" : "Tomy",
+	"email" : "tomy@gmail.com",
+	"password" : "peTom",
+	"orderNo" : 9,
+	"address" : {
+		"street" : "brovejen",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 9,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" : 160.0,
+			"ISBN" : "a17",
+			"qty" : 10
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 17,
+		"ISBN" : "a17",
+		"price" :160.0,
+		"pages" : 340,
+		"copies" : 350,
+		"language" : "en",
+		"author" : 11,
+		"cahracter" : {
+			"type" : "robin"
+		},
+		"title" : "ms parker",
+		"category" : "Cyberpunk"
+	},
+	"author" : {
+		"_id" : 11,
+		"name" : "Kiel strre",
+		"email" : "kiel@gmail.com"
+	}
+}
+{
+	"_id" : 8,
+	"name" : "Tomy",
+	"email" : "tomy@gmail.com",
+	"password" : "peTom",
+	"orderNo" : 9,
+	"address" : {
+		"street" : "brovejen",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 9,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" : 17.0,
+			"ISBN" : "a18",
+			"qty" : 10
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 18,
+		"ISBN" : "a18",
+		"price" : 17.0,
+		"pages" : 450,
+		"copies" : 350,
+		"language" : "en",
+		"author" : 6,
+		"cahracter" : {
+			"type" : "caBalfourh"
+		},
+		"title" : "stup",
+		"category" : "Dystopian"
+	},
+	"author" : {
+		"_id" : 6,
+		"name" : "Jan",
+		"email" : "jan@rgmail.com"
+	}
+}
+{
+	"_id" : 8,
+	"name" : "Tomy",
+	"email" : "tomy@gmail.com",
+	"password" : "peTom",
+	"orderNo" : 9,
+	"address" : {
+		"street" : "brovejen",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 9,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" :17.0,
+			"ISBN" : "a18",
+			"qty" : 10
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 18,
+		"ISBN" : "a18",
+		"price" : 17.0,
+		"pages" : 450,
+		"copies" : 350,
+		"language" : "en",
+		"author" : 7,
+		"cahracter" : {
+			"type" : "caBalfourh"
+		},
+		"title" : "stup",
+		"category" : "Dystopian"
+	},
+	"author" : {
+		"_id" : 7,
+		"name" : "Tom",
+		"email" : "tom@gmail.com"
+	}
+}
+{
+	"_id" : 9,
+	"name" : "Fadi",
+	"email" : "fadi@gmail.com",
+	"password" : "peFadier",
+	"orderNo" : 10,
+	"address" : {
+		"street" : "aalborgvej",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 10,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" : 190.0,
+			"ISBN" : "a19",
+			"qty" : 10
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 19,
+		"ISBN" : "a19",
+		"price" :190.0,
+		"pages" : 540,
+		"copies" : 530,
+		"language" : "en",
+		"author" : 8,
+		"cahracter" : {
+			"type" : "Bunter"
+		},
+		"title" : "staborn",
+		"category" : "Space Opera"
+	},
+	"author" : {
+		"_id" : 8,
+		"name" : "Tomy",
+		"email" : "tomy@gmail.com"
+	}
+}
+{
+	"_id" : 9,
+	"name" : "Fadi",
+	"email" : "fadi@gmail.com",
+	"password" : "peFadier",
+	"orderNo" : 10,
+	"address" : {
+		"street" : "aalborgvej",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 10,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" : 190.0,
+			"ISBN" : "a19",
+			"qty" : 10
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 19,
+		"ISBN" : "a19",
+		"price" : 190.0,
+		"pages" : 540,
+		"copies" : 530,
+		"language" : "en",
+		"author" : 5,
+		"cahracter" : {
+			"type" : "Bunter"
+		},
+		"title" : "staborn",
+		"category" : "Space Opera"
+	},
+	"author" : {
+		"_id" : 5,
+		"name" : "Poul",
+		"email" : "Poul@gmail.com"
+	}
+}
+{
+	"_id" : 9,
+	"name" : "Fadi",
+	"email" : "fadi@gmail.com",
+	"password" : "peFadier",
+	"orderNo" : 10,
+	"address" : {
+		"street" : "aalborgvej",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 10,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" : 240.0,
+			"ISBN" : "a20",
+			"qty" : 10
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 20,
+		"ISBN" : "a20",
+		"price" : 240.0,
+		"pages" : 450,
+		"copies" : 320,
+		"language" : "en",
+		"author" : 6,
+		"cahracter" : {
+			"type" : "Brer Rabbit"
+		},
+		"title" : "Nineteen Eighty-four",
+		"category" : "Dystopian"
+	},
+	"author" : {
+		"_id" : 6,
+		"name" : "Jan",
+		"email" : "jan@rgmail.com"
+	}
+}
+{
+	"_id" : 9,
+	"name" : "Fadi",
+	"email" : "fadi@gmail.com",
+	"password" : "peFadier",
+	"orderNo" : 10,
+	"address" : {
+		"street" : "aalborgvej",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 10,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" : 240.0,
+			"ISBN" : "a20",
+			"qty" : 10
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 20,
+		"ISBN" : "a20",
+		"price" : 240.0,
+		"pages" : 450,
+		"copies" : 320,
+		"language" : "en",
+		"author" : 3,
+		"cahracter" : {
+			"type" : "Brer Rabbit"
+		},
+		"title" : "Nineteen Eighty-four",
+		"category" : "Dystopian"
+	},
+	"author" : {
+		"_id" : 3,
+		"name" : "Stefan",
+		"email" : "stefan@gmail.com"
+	}
+}
+{
+	"_id" : 10,
+	"name" : "Clause",
+	"email" : "clause@gmail.com",
+	"password" : "peasfasfr",
+	"orderNo" : 11,
+	"address" : {
+		"street" : "aarhusvej",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 11,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" : 250.0,
+			"ISBN" : "a21",
+			"qty" : 10
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 21,
+		"ISBN" : "a21",
+		"price" : 250.0,
+		"pages" : 460,
+		"copies" : 320,
+		"language" : "en",
+		"author" : 1,
+		"cahracter" : {
+			"type" : "Brer Rabbit"
+		},
+		"title" : "War and Peace",
+		"category" : "Space Opera"
+	},
+	"author" : {
+		"_id" : 1,
+		"name" : "Robert hug",
+		"email" : "hug@gmail.com"
+	}
+}
+{
+	"_id" : 10,
+	"name" : "Clause",
+	"email" : "clause@gmail.com",
+	"password" : "peasfasfr",
+	"orderNo" : 11,
+	"address" : {
+		"street" : "aarhusvej",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 11,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" : 250.0,
+			"ISBN" : "a21",
+			"qty" : 10
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 21,
+		"ISBN" : "a21",
+		"price" : 250.0,
+		"pages" : 460,
+		"copies" : 320,
+		"language" : "en",
+		"author" : 9,
+		"cahracter" : {
+			"type" : "Brer Rabbit"
+		},
+		"title" : "War and Peace",
+		"category" : "Space Opera"
+	},
+	"author" : {
+		"_id" : 9,
+		"name" : "Giuth",
+		"email" : "giuth@gmail.com"
+	}
+}
+{
+	"_id" : 10,
+	"name" : "Clause",
+	"email" : "clause@gmail.com",
+	"password" : "peasfasfr",
+	"orderNo" : 11,
+	"address" : {
+		"street" : "aarhusvej",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 11,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" : 256.0,
+			"ISBN" : "a22",
+			"qty" : 10
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 22,
+		"ISBN" : "a22",
+		"price" : 256.0,
+		"pages" : 480,
+		"copies" : 140,
+		"language" : "en",
+		"author" : 10,
+		"cahracter" : {
+			"type" : "Bobbsey Twins "
+		},
+		"title" : "Mansfield Park",
+		"category" : "Space Opera"
+	},
+	"author" : {
+		"_id" : 10,
+		"name" : "Klause",
+		"email" : "klause@gmail.com"
+	}
+}
+{
+	"_id" : 10,
+	"name" : "Clause",
+	"email" : "clause@gmail.com",
+	"password" : "peasfasfr",
+	"orderNo" : 11,
+	"address" : {
+		"street" : "aarhusvej",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 11,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" : 256.0,
+			"ISBN" : "a22",
+			"qty" : 10
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 22,
+		"ISBN" : "a22",
+		"price" : 256.0,
+		"pages" : 480,
+		"copies" : 140,
+		"language" : "en",
+		"author" : 11,
+		"cahracter" : {
+			"type" : "Bobbsey Twins "
+		},
+		"title" : "Mansfield Park",
+		"category" : "Space Opera"
+	},
+	"author" : {
+		"_id" : 11,
+		"name" : "Kiel strre",
+		"email" : "kiel@gmail.com"
+	}
+}
+{
+	"_id" : 10,
+	"name" : "Clause",
+	"email" : "clause@gmail.com",
+	"password" : "peasfasfr",
+	"orderNo" : 12,
+	"address" : {
+		"street" : "aarhusvej",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 12,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" : 460.0,
+			"ISBN" : "a23",
+			"qty" : 10
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 23,
+		"ISBN" : "a23",
+		"price" : 250.0,
+		"pages" : 480,
+		"copies" : 320,
+		"language" : "en",
+		"author" : 11,
+		"cahracter" : {
+			"type" : "Big Daddy"
+		},
+		"title" : "Pride and Prejudice",
+		"category" : "Space Opera"
+	},
+	"author" : {
+		"_id" : 11,
+		"name" : "Kiel strre",
+		"email" : "kiel@gmail.com"
+	}
+}
+{
+	"_id" : 10,
+	"name" : "Clause",
+	"email" : "clause@gmail.com",
+	"password" : "peasfasfr",
+	"orderNo" : 12,
+	"address" : {
+		"street" : "aarhusvej",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 12,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" : 460.0,
+			"ISBN" : "a23",
+			"qty" : 10
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 23,
+		"ISBN" : "a23",
+		"price" : 250.0,
+		"pages" : 480,
+		"copies" : 320,
+		"language" : "en",
+		"author" : 1,
+		"cahracter" : {
+			"type" : "Big Daddy"
+		},
+		"title" : "Pride and Prejudice",
+		"category" : "Space Opera"
+	},
+	"author" : {
+		"_id" : 1,
+		"name" : "Robert hug",
+		"email" : "hug@gmail.com"
+	}
+}
+{
+	"_id" : 10,
+	"name" : "Clause",
+	"email" : "clause@gmail.com",
+	"password" : "peasfasfr",
+	"orderNo" : 12,
+	"address" : {
+		"street" : "aarhusvej",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 12,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" : 460.0,
+			"ISBN" : "a24",
+			"qty" : 10
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 24,
+		"ISBN" : "a24",
+		"price" : 460.0,
+		"pages" : 840,
+		"copies" : 640,
+		"language" : "en",
+		"author" : 3,
+		"cahracter" : {
+			"type" : "Josiah Bounderby"
+		},
+		"title" : "Paradise Lost",
+		"category" : "Dystopian"
+	},
+	"author" : {
+		"_id" : 3,
+		"name" : "Stefan",
+		"email" : "stefan@gmail.com"
+	}
+}
+{
+	"_id" : 10,
+	"name" : "Clause",
+	"email" : "clause@gmail.com",
+	"password" : "peasfasfr",
+	"orderNo" : 12,
+	"address" : {
+		"street" : "aarhusvej",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 12,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" : 460.0,
+			"ISBN" : "a24",
+			"qty" : 10
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 24,
+		"ISBN" : "a24",
+		"price" : 460.0,
+		"pages" : 840,
+		"copies" : 640,
+		"language" : "en",
+		"author" : 6,
+		"cahracter" : {
+			"type" : "Josiah Bounderby"
+		},
+		"title" : "Paradise Lost",
+		"category" : "Dystopian"
+	},
+	"author" : {
+		"_id" : 6,
+		"name" : "Jan",
+		"email" : "jan@rgmail.com"
+	}
+}
+{
+	"_id" : 10,
+	"name" : "Clause",
+	"email" : "clause@gmail.com",
+	"password" : "peasfasfr",
+	"orderNo" : 13,
+	"address" : {
+		"street" : "aarhusvej",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 13,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" : 460.0,
+			"ISBN" : "a25",
+			"qty" : 10
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 25,
+		"ISBN" : "a25",
+		"price" : 460.0,
+		"pages" : 840,
+		"copies" : 440,
+		"language" : "en",
+		"author" : 2,
+		"cahracter" : {
+			"type" : "Josiah Bounderby"
+		},
+		"title" : "Adam Bede",
+		"category" : "Space Opera"
+	},
+	"author" : {
+		"_id" : 2,
+		"name" : "Victor stefan",
+		"email" : "victor@gmail.com"
+	}
+}
+{
+	"_id" : 10,
+	"name" : "Clause",
+	"email" : "clause@gmail.com",
+	"password" : "peasfasfr",
+	"orderNo" : 13,
+	"address" : {
+		"street" : "aarhusvej",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 13,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" : 460.0,
+			"ISBN" : "a25",
+			"qty" : 10
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 25,
+		"ISBN" : "a25",
+		"price" : 460.0,
+		"pages" : 840,
+		"copies" : 440,
+		"language" : "en",
+		"author" : 5,
+		"cahracter" : {
+			"type" : "Josiah Bounderby"
+		},
+		"title" : "Adam Bede",
+		"category" : "Space Opera"
+	},
+	"author" : {
+		"_id" : 5,
+		"name" : "Poul",
+		"email" : "Poul@gmail.com"
+	}
+}
+{
+	"_id" : 10,
+	"name" : "Clause",
+	"email" : "clause@gmail.com",
+	"password" : "peasfasfr",
+	"orderNo" : 13,
+	"address" : {
+		"street" : "aarhusvej",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 13,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" : 140.0,
+			"ISBN" : "a26",
+			"qty" : 10
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 26,
+		"ISBN" : "a26",
+		"price" : 140.0,
+		"pages" : 490,
+		"copies" : 140,
+		"language" : "en",
+		"author" : 7,
+		"cahracter" : {
+			"type" : "Anthony Blanche"
+		},
+		"title" : "Fathers and Sons",
+		"category" : "Fantasy"
+	},
+	"author" : {
+		"_id" : 7,
+		"name" : "Tom",
+		"email" : "tom@gmail.com"
+	}
+}
+{
+	"_id" : 10,
+	"name" : "Clause",
+	"email" : "clause@gmail.com",
+	"password" : "peasfasfr",
+	"orderNo" : 13,
+	"address" : {
+		"street" : "aarhusvej",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 13,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" : 140.0,
+			"ISBN" : "a26",
+			"qty" : 10
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 26,
+		"ISBN" : "a26",
+		"price" : 140.0,
+		"pages" : 490,
+		"copies" : 140,
+		"language" : "en",
+		"author" : 3,
+		"cahracter" : {
+			"type" : "Anthony Blanche"
+		},
+		"title" : "Fathers and Sons",
+		"category" : "Fantasy"
+	},
+	"author" : {
+		"_id" : 3,
+		"name" : "Stefan",
+		"email" : "stefan@gmail.com"
+	}
+}
+{
+	"_id" : 11,
+	"name" : "Kiel",
+	"email" : "kiel@gmail.com",
+	"password" : "petKielter",
+	"orderNo" : 14,
+	"address" : {
+		"street" : "middelfartvej",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 14,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" : 177.0,
+			"ISBN" : "a27",
+			"qty" : 10
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 27,
+		"ISBN" : "a27",
+		"price" : 177.0,
+		"pages" : 940,
+		"copies" : 240,
+		"language" : "en",
+		"author" : 8,
+		"cahracter" : {
+			"type" : "Bertram family"
+		},
+		"title" : "The House of Mirth",
+		"category" : "Fantasy"
+	},
+	"author" : {
+		"_id" : 8,
+		"name" : "Tomy",
+		"email" : "tomy@gmail.com"
+	}
+}
+{
+	"_id" : 11,
+	"name" : "Kiel",
+	"email" : "kiel@gmail.com",
+	"password" : "petKielter",
+	"orderNo" : 14,
+	"address" : {
+		"street" : "middelfartvej",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 14,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" : 137.0,
+			"ISBN" : "a28",
+			"qty" : 10
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 28,
+		"ISBN" : "a28",
+		"price" :137.0,
+		"pages" : 40,
+		"copies" : 1240,
+		"language" : "en",
+		"author" : 1,
+		"cahracter" : {
+			"type" : "Belial"
+		},
+		"title" : "The Sun Also Rises",
+		"category" : "Fantasy"
+	},
+	"author" : {
+		"_id" : 1,
+		"name" : "Robert hug",
+		"email" : "hug@gmail.com"
+	}
+}
+{
+	"_id" : 11,
+	"name" : "Kiel",
+	"email" : "kiel@gmail.com",
+	"password" : "petKielter",
+	"orderNo" : 14,
+	"address" : {
+		"street" : "middelfartvej",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 14,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" : 137.0,
+			"ISBN" : "a29",
+			"qty" : 10
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 29,
+		"ISBN" : "a29",
+		"price" : 137.0,
+		"pages" : 40,
+		"copies" : 42324,
+		"language" : "en",
+		"author" : 1,
+		"cahracter" : {
+			"type" : "Adam Bede"
+		},
+		"title" : "Copperfield",
+		"category" : "Fantasy"
+	},
+	"author" : {
+		"_id" : 1,
+		"name" : "Robert hug",
+		"email" : "hug@gmail.com"
+	}
+}
+{
+	"_id" : 11,
+	"name" : "Kiel",
+	"email" : "kiel@gmail.com",
+	"password" : "petKielter",
+	"orderNo" : 14,
+	"address" : {
+		"street" : "middelfartvej",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 14,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" : 124.0,
+			"ISBN" : "a30",
+			"qty" : 10
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 30,
+		"ISBN" : "a30",
+		"price" : 124.0,
+		"pages" : 460,
+		"copies" : 236,
+		"language" : "en",
+		"author" : 4,
+		"cahracter" : {
+			"type" : "Lily Bart "
+		},
+		"title" : "Kidnapped",
+		"category" : "Fantasy"
+	},
+	"author" : {
+		"_id" : 4,
+		"name" : "Jo",
+		"email" : "jo@gmail.com"
+	}
+}
+{
+	"_id" : 11,
+	"name" : "Kiel",
+	"email" : "kiel@gmail.com",
+	"password" : "petKielter",
+	"orderNo" : 14,
+	"address" : {
+		"street" : "middelfartvej",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 14,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" : 124.0,
+			"ISBN" : "a31",
+			"qty" : 10
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 31,
+		"ISBN" : "a31",
+		"price" :180.0,
+		"pages" : 640,
+		"copies" : 43,
+		"language" : "en",
+		"author" : 2,
+		"cahracter" : {
+			"type" : "Jake Barnes"
+		},
+		"title" : "The Canterbury Tales",
+		"category" : "Fantasy"
+	},
+	"author" : {
+		"_id" : 2,
+		"name" : "Victor stefan",
+		"email" : "victor@gmail.com"
+	}
+}
+{
+	"_id" : 11,
+	"name" : "Kiel",
+	"email" : "kiel@gmail.com",
+	"password" : "petKielter",
+	"orderNo" : 14,
+	"address" : {
+		"street" : "middelfartvej",
+		"zip" : 8700,
+		"town" : "Horsens"
+	},
+	"order" : {
+		"_id" : 14,
+		"date" : "2020-05-10",
+		"book" : {
+			"price" : 190.0,
+			"ISBN" : "a32",
+			"qty" : 10
+		},
+		"state" : "done"
+	},
+	"book" : {
+		"_id" : 32,
+		"ISBN" : "a32",
+		"price" : 190.0,
+		"pages" : 740,
+		"copies" : 470,
+		"language" : "en",
+		"author" : 2,
+		"cahracter" : {
+			"type" : "David Balfour"
+		},
+		"title" : "The Hobbitt",
+		"category" : "Non-Fiction"
+	},
+	"author" : {
+		"_id" : 2,
+		"name" : "Victor stefan",
+		"email" : "victor@gmail.com"
+	}
+}

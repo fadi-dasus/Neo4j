@@ -1,0 +1,13 @@
+{ "_id" : 1, "name" : "Book", "parent" : "Root" }
+{ "_id" : 2, "name" : "Fiction", "parent" : "Book" }
+{ "_id" : 3, "name" : "Non-Fiction", "parent" : "Book" }
+{ "_id" : 4, "name" : "Fantasy and Science Fiction", "parent" : "Fiction" }
+{ "_id" : 5, "name" : "Fantasy", "parent" : "Fantasy and Science Fiction" }
+{
+	"_id" : 6,
+	"name" : "Science Fiction",
+	"parent" : "Fantasy and Science Fiction"
+}
+{ "_id" : 7, "name" : "Space Opera", "parent" : "Science Fiction" }
+{ "_id" : 8, "name" : "Dystopian", "parent" : "Science Fiction" }
+{ "_id" : 9, "name" : "Cyberpunk", "parent" : "Science Fiction" }

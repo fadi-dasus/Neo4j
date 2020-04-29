@@ -29,9 +29,13 @@ CALL apoc.load.json("file:///bookStore.json")
 	MERGE ((character)-[:PRESENTED_IN]->(book))
 	MERGE ((book)-[:IS_a]->(category))
 
+MERGE (c:Category{name:'Fiction'})<-[:IS_a]-(b:Book{title:'No one will buy me',ISBN:'unknown',pages:300,price:20,currency:'ØRE'})<-[w:WROTE]-(a:Author{name:'bad author'})
+
 CREATE CONSTRAINT ON (order:Order)
 ASSERT order.uuid IS UNIQUE
 
+CREATE CONSTRAINT ON (book:Book)
+ASSERT book.ISBN IS UNIQUE
 	
 
 	
