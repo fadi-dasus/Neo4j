@@ -33,5 +33,5 @@ CREATE CONSTRAINT ON (order:Order)
 ASSERT order.uuid IS UNIQUE
 
 	
-MATCH (n) DETACH DELETE n
+
 	
