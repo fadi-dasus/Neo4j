@@ -15,10 +15,10 @@ CALL apoc.load.json("file:///bookStore.json")
 	customer.email = value.email,customer.password=value.password,customer.customerNo = apoc.create.uuid()
 	MERGE (address:Address{street:value.address.street,zip:value.address.zip,town:value.address.town})
 	MERGE((customer) -[:Lives_In]-> (address))
-    MERGE (book:Book{title:value.book.title,currency:'ØRE',ISBN: value.book.ISBN,price:value.book.price,pages:value.book.pages,copies:value.book.copies,language:value.book.language})
-    MERGE(author:Author{name:value.author.name,email:value.author.email})
-    MERGE(character:Character{type:value.book.cahracter.type})
-    MERGE(order:Order{id:value.order._id,date:value.order.date})
+    	MERGE (book:Book{title:value.book.title,currency:'ØRE',ISBN: value.book.ISBN,price:value.book.price,pages:value.book.pages,copies:value.book.copies,language:value.book.language})
+   	MERGE(author:Author{name:value.author.name,email:value.author.email})
+   	MERGE(character:Character{type:value.book.cahracter.type})
+  	MERGE(order:Order{id:value.order._id,date:value.order.date})
 	ON CREATE SET 
 	order.orderNo = apoc.create.uuid()
 	REMOVE order.id
@@ -28,8 +28,11 @@ CALL apoc.load.json("file:///bookStore.json")
 	MERGE((author)-[:WROTE]->(book))
 	MERGE ((character)-[:PRESENTED_IN]->(book))
 	MERGE ((book)-[:IS_a]->(category))
+	MERGE (b:Book{title:'No one will buy me',ISBN:'unknown',pages:300,price:20,currency:'ØRE'})
+ 	MERGE (c:Category{name:'Fiction'})
+	MERGE (a:Author{name:'bad author'})
+	MERGE (c)<-[:IS_a]-(b)<-[w:WROTE]-(a)
 
-MERGE (c:Category{name:'Fiction'})<-[:IS_a]-(b:Book{title:'No one will buy me',ISBN:'unknown',pages:300,price:20,currency:'ØRE'})<-[w:WROTE]-(a:Author{name:'bad author'})
 
 CREATE CONSTRAINT ON (order:Order)
 ASSERT order.uuid IS UNIQUE
