@@ -59,7 +59,6 @@ RETURN *
 //9.Number of copies of each book sold – unsold books should show as 0 sold copies.
 MATCH (cu:Customer)-[pu:PURCHASED]->(:Order)
 MATCH(b:Book)
-WITH  b, pu
 WITH SUM(pu.qty) AS calculate,b, pu
 RETURN b.ISBN,SUM(CASE WHEN b.ISBN =pu.ISBN THEN calculate ELSE 0 END ) AS quantity
 ORDER BY quantity DESC
