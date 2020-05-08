@@ -12,9 +12,15 @@ RETURN  SUM(p.price* p.qty) AS totalAmount
 
 
 //3.Total sales to a customer
+//Total monetary amount in sales
 MATCH (c:Customer{name: 'Clause'}) -[p:PURCHASED]-> (o:Order)
 RETURN  SUM(p.price* p.qty) AS totalAmount
 
+or
+
+//Total numerical amount of purchases
+MATCH (c:Customer {name: 'Clause'})  – [r] -> (:Order) 
+RETURN type(r), count(*) 
 
 
 //4.Books that are categorized as neither fiction nor non-fiction
@@ -32,12 +38,17 @@ RETURN c.name, AVG(b.pages)
 
 
 
-//6.Categories that have no sub-categories 
+//6.Categories that have no sub-categories
+//These queries return the same results, the difference is in the number of nodes that are searched
 MATCH(c:Category)-[p:PARENT]->(parent:Category)
 WHERE NOT EXISTS ((c)<-[:PARENT]-())
 RETURN c
 
+or
 
+MATCH (c:Category)  
+WHERE NOT (c) <- [:PARENT] – () 
+RETURN c 
 
 //7.ISBN numbers of books with more than one author
 
