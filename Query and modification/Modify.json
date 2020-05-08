@@ -45,11 +45,20 @@ DELETE i,p,c
 //5.Change a book from Non-fiction to fiction, or vice versa
 //Fiction to Non-Fiction
 
+//Without using the apoc library
 MATCH  (b:Book{ISBN:'a2'})-[i:IS_a]->(c:Category{name:'Dystopian'})
 MATCH (target:Category{name:'Non-Fiction'})
 CREATE (b)-[:IS_a]->(target)
 DELETE i
 
+or
+
+//Using the apoc library
+MATCH (b:Book {ISBN: 'a19'}) – [r1:IS_a] -> (c1:Category {name: 'Space Opera'})
+MATCH (c2:Category {name: 'Non-Fiction'})
+CALL apoc.refactor.to(r1, c2)
+YIELD input, output
+RETURN input, output
 
 
 //6.Retire the "Fantasy and Science Fiction" category and just use either "Fantasy" or "Science Fiction"
