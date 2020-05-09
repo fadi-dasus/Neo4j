@@ -41,14 +41,5 @@ CREATE CONSTRAINT ON (book:Book)
 ASSERT book.ISBN IS UNIQUE
 
 
-//add new book (which has not been ordered)
-MATCH (book:Book{title:'new title',ISBN:'b2',price:15,pages:233,copies:5,language:'en'})
-MATCH(c:Character{type:'Count Almaviva'}) 
-MATCH (ca:Category{name:'Non-Fiction'}) 
-WITH ca,c,book
-MERGE (book)-[:IS_a]->(ca)
-WITH ca,c,book
-MERGE (c)-[:PRESENTED_IN]->(book)
-	
 
 	
