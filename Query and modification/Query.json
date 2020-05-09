@@ -18,9 +18,9 @@ RETURN  SUM(p.price* p.qty) AS totalAmount
 
 or
 
-//Total numerical amount of purchases
-MATCH (c:Customer {name: 'Clause'})  – [r] -> (:Order) 
-RETURN type(r), count(*) 
+//Total numerical amount in sales
+MATCH (:Customer {name: 'Clause'})  – [r] -> (:Order) 
+RETURN type(r), count(*)
 
 
 //4.Books that are categorized as neither fiction nor non-fiction

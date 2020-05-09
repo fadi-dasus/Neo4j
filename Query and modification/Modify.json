@@ -54,11 +54,11 @@ DELETE i
 or
 
 //Using the apoc library
-MATCH (b:Book {ISBN: 'a19'}) – [r1:IS_a] -> (c1:Category {name: 'Space Opera'})
+MATCH (b:Book {ISBN: 'a19'}) – [r1:IS_a] -> (:Category {name: 'Space Opera'})
 MATCH (c2:Category {name: 'Non-Fiction'})
 CALL apoc.refactor.to(r1, c2)
 YIELD input, output
-RETURN input, output
+RETURN b, r1, c2
 
 
 //6.Retire the "Fantasy and Science Fiction" category and just use either "Fantasy" or "Science Fiction"
