@@ -18,7 +18,7 @@ RETURN  SUM(p.price* p.qty) AS totalAmount
 
 or
 
-//Total numerical amount in sales
+//Total numerical amount in sales(number of books)
 MATCH (:Customer {name: 'Clause'})  – [r] -> (:Order) 
 RETURN type(r), count(*)
 
@@ -39,7 +39,6 @@ RETURN c.name, AVG(b.pages)
 
 
 //6.Categories that have no sub-categories
-//These queries return the same results, the difference is in the number of nodes that are searched
 MATCH(c:Category)-[p:PARENT]->(parent:Category)
 WHERE NOT EXISTS ((c)<-[:PARENT]-())
 RETURN c
