@@ -1,6 +1,6 @@
 
 //1. All books by an author
-MATCH(a:Author {name: "Robert hug"})-[:WORTE]-> (b:Book)
+MATCH(a:Author {name: "Robert hug"})-[:WROTE]-> (b:Book)
 RETURN b
 
 
