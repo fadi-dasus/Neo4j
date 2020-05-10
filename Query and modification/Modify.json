@@ -53,8 +53,8 @@ DELETE i
 
 or
 
-//Using the apoc library
-MATCH (b:Book {ISBN: 'a19'}) – [r1:IS_a] -> (:Category {name: 'Space Opera'})
+//Using the apoc library // does not work
+MATCH (b:Book {ISBN: 'a18'}) – [r1:IS_a] -> (:Category {name: 'Dystopian'})
 MATCH (c2:Category {name: 'Non-Fiction'})
 CALL apoc.refactor.to(r1, c2)
 YIELD input, output
